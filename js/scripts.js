@@ -5,3 +5,17 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+document.addEventListener("DOMContentLoaded", function () {
+  const currentLocation = window.location.pathname;
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  navLinks.forEach(link => {
+      const linkPath = new URL(link.href).pathname;
+      if (linkPath === currentLocation) {
+          link.classList.add("active");
+      } else {
+          link.classList.remove("active");
+      }
+  });
+});
